@@ -19,7 +19,7 @@ jobs:
       - name: Php
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.5'
       - name: Composer
         uses: php-actions/composer@v6
       - name: Check cs
@@ -34,7 +34,7 @@ jobs:
       - name: Php
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: '8.5'
       - name: Composer
         uses: php-actions/composer@v6
       - name: Run tests
