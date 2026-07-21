@@ -58,7 +58,7 @@ class InternalApiAuthenticatorTest extends TestCase
         yield 'success' => [
             'request' => new Request(
                 server: [
-                    'HTTP_InternalAuthorization' => 'some-internal-auth-token',
+                    'HTTP_Internal-Authorization' => 'some-internal-auth-token',
                 ],
             ),
         ];

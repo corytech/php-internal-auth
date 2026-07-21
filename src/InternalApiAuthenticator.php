@@ -22,7 +22,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class InternalApiAuthenticator extends AbstractAuthenticator
 {
-    public const string INTERNAL_AUTHORIZATION_HEADER = 'InternalAuthorization';
+    public const string INTERNAL_AUTHORIZATION_HEADER = 'Internal-Authorization';
 
     public function __construct(
         private readonly SerializerInterface $serializer,
