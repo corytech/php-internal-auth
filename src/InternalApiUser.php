@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Corytech\PhpInternalAuth\Security\InternalAuthenticator;
+namespace Corytech\InternalAuth;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -23,5 +23,10 @@ readonly class InternalApiUser implements UserInterface
     public function getUserIdentifier(): string
     {
         return $this->token;
+    }
+
+    #[\Override]
+    public function eraseCredentials(): void
+    {
     }
 }

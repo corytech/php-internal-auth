@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Corytech\PhpInternalAuth\Tests;
 
-use Corytech\PhpInternalAuth\Security\InternalAuthenticator\InternalApiAuthenticator;
+use Corytech\InternalAuth\InternalApiAuthenticator;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;

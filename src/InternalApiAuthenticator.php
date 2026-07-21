@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Corytech\PhpInternalAuth\Security\InternalAuthenticator;
+namespace Corytech\InternalAuth;
 
 use Corytech\OpenApi\DTO\CommonApiErrorCode;
 use Corytech\OpenApi\DTO\ResponseError;
