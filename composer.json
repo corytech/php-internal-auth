@@ -1,0 +1,28 @@
+{
+  "name": "corytech/php-internal-auth",
+  "type": "library",
+  "description": "Custom internal authorization",
+  "keywords": ["php-internal-auth"],
+  "license": "MIT",
+  "require": {
+    "php": ">=8.4",
+    "corytech/php-openapi": "^2.0",
+    "symfony/security-bundle": "^7.4",
+    "symfony/serializer": "^7.4"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.84",
+    "phpunit/phpunit": "^12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Corytech\\PhpInternalAuth\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Corytech\\PhpInternalAuth\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev"
+}
