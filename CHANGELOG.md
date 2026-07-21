@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/corytech/php-internal-auth/compare/v1.1.0...v1.1.1) (2026-07-21)
+
+
+### 🐛 Bugfixes
+
+* fix checkout version ([3535b67](https://github.com/corytech/php-internal-auth/commit/3535b67515a1ec3c7251f0ee79e736e1e98f3661))
+
 ## [1.1.0](https://github.com/corytech/php-internal-auth/compare/v1.0.0...v1.1.0) (2026-07-21)
 
 
