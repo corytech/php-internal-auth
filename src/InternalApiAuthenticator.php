@@ -40,12 +40,11 @@ class InternalApiAuthenticator extends AbstractAuthenticator
     #[\Override]
     public function authenticate(Request $request): Passport
     {
-        $internalAuthToken = $request->headers->get(self::INTERNAL_AUTHORIZATION_HEADER);
-        if (!$internalAuthToken || $internalAuthToken !== $this->internalAuthToken) {
+        if (!$this->isRequestAuthenticated($request)) {
             throw new AuthenticationException();
         }
 
-        $user = new InternalApiUser($internalAuthToken);
+        $user = new InternalApiUser($request->headers->get(self::INTERNAL_AUTHORIZATION_HEADER));
 
         return new SelfValidatingPassport(
             new UserBadge(
@@ -71,5 +70,15 @@ class InternalApiAuthenticator extends AbstractAuthenticator
             ),
             json: true
         );
+    }
+
+    public function isRequestAuthenticated(Request $request): bool
+    {
+        $internalAuthToken = $request->headers->get(self::INTERNAL_AUTHORIZATION_HEADER);
+        if (!$internalAuthToken || $internalAuthToken !== $this->internalAuthToken) {
+            return false;
+        }
+
+        return true;
     }
 }
