@@ -24,7 +24,7 @@ readonly class InternalApiService
         return true;
     }
 
-    public function getInternalAuthToken(): string
+    public function getAuthToken(): string
     {
         return $this->internalAuthToken;
     }
