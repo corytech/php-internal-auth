@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.3](https://github.com/corytech/php-internal-auth/compare/v1.1.2...v1.1.3) (2026-07-22)
+
+
+### 🐛 Bugfixes
+
+* add service ([7e8415c](https://github.com/corytech/php-internal-auth/commit/7e8415c94326f3503b742f172785cd141346ea65))
+* add service ([4aec114](https://github.com/corytech/php-internal-auth/commit/4aec114dac0d061bdcb2fa90cfe13b707485a947))
+* add service ([f81c5ea](https://github.com/corytech/php-internal-auth/commit/f81c5eac0b3f9b683dbdf3e9c5af7656ac7e53f1))
+* add to service ([0a020fa](https://github.com/corytech/php-internal-auth/commit/0a020fad548b7e8f3d28c04b88f5eaa2c1e8baff))
+
 ## [1.1.2](https://github.com/corytech/php-internal-auth/compare/v1.1.1...v1.1.2) (2026-07-22)
 
 
