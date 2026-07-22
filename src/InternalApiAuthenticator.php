@@ -7,7 +7,6 @@ namespace Corytech\InternalAuth;
 use Corytech\OpenApi\DTO\CommonApiErrorCode;
 use Corytech\OpenApi\DTO\ResponseError;
 use Corytech\OpenApi\DTO\ResponseWrapper;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,8 +25,7 @@ class InternalApiAuthenticator extends AbstractAuthenticator
 
     public function __construct(
         private readonly SerializerInterface $serializer,
-        #[Autowire('%env(INTERNAL_AUTH_TOKEN)%')]
-        private readonly string $internalAuthToken,
+        private readonly InternalApiService $service,
     ) {
     }
 
@@ -40,7 +38,8 @@ class InternalApiAuthenticator extends AbstractAuthenticator
     #[\Override]
     public function authenticate(Request $request): Passport
     {
-        if (!$this->isRequestAuthenticated($request)) {
+        $headerAuthToken = $request->headers->get(self::INTERNAL_AUTHORIZATION_HEADER);
+        if (!$this->service->isRequestAuthenticated($headerAuthToken)) {
             throw new AuthenticationException();
         }
 
@@ -70,15 +69,5 @@ class InternalApiAuthenticator extends AbstractAuthenticator
             ),
             json: true
         );
-    }
-
-    public function isRequestAuthenticated(Request $request): bool
-    {
-        $internalAuthToken = $request->headers->get(self::INTERNAL_AUTHORIZATION_HEADER);
-        if (!$internalAuthToken || $internalAuthToken !== $this->internalAuthToken) {
-            return false;
-        }
-
-        return true;
     }
 }

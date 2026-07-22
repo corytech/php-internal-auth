@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Corytech\PhpInternalAuth\Tests;
 
 use Corytech\InternalAuth\InternalApiAuthenticator;
+use Corytech\InternalAuth\InternalApiService;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +23,7 @@ class InternalApiAuthenticatorTest extends TestCase
         $serializer = $this->createMock(SerializerInterface::class);
         $this->authenticator = new InternalApiAuthenticator(
             serializer: $serializer,
-            internalAuthToken: 'some-internal-auth-token',
+            service: new InternalApiService('some-internal-auth-token'),
         );
 
         parent::setUp();
