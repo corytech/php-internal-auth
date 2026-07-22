@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Corytech\PhpInternalAuth\Security\InternalAuthenticator;
+namespace Corytech\InternalAuth;
 
 use Corytech\OpenApi\DTO\CommonApiErrorCode;
 use Corytech\OpenApi\DTO\ResponseError;
@@ -22,7 +22,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class InternalApiAuthenticator extends AbstractAuthenticator
 {
-    public const string INTERNAL_AUTHORIZATION_HEADER = 'InternalAuthorization';
+    public const string INTERNAL_AUTHORIZATION_HEADER = 'Internal-Authorization';
 
     public function __construct(
         private readonly SerializerInterface $serializer,
@@ -40,12 +40,11 @@ class InternalApiAuthenticator extends AbstractAuthenticator
     #[\Override]
     public function authenticate(Request $request): Passport
     {
-        $internalAuthToken = $request->headers->get(self::INTERNAL_AUTHORIZATION_HEADER);
-        if (!$internalAuthToken || $internalAuthToken !== $this->internalAuthToken) {
+        if (!$this->isRequestAuthenticated($request)) {
             throw new AuthenticationException();
         }
 
-        $user = new InternalApiUser($internalAuthToken);
+        $user = new InternalApiUser($request->headers->get(self::INTERNAL_AUTHORIZATION_HEADER));
 
         return new SelfValidatingPassport(
             new UserBadge(
@@ -71,5 +70,15 @@ class InternalApiAuthenticator extends AbstractAuthenticator
             ),
             json: true
         );
+    }
+
+    public function isRequestAuthenticated(Request $request): bool
+    {
+        $internalAuthToken = $request->headers->get(self::INTERNAL_AUTHORIZATION_HEADER);
+        if (!$internalAuthToken || $internalAuthToken !== $this->internalAuthToken) {
+            return false;
+        }
+
+        return true;
     }
 }
