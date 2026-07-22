@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.2](https://github.com/corytech/php-internal-auth/compare/v1.1.1...v1.1.2) (2026-07-22)
+
+
+### 🐛 Bugfixes
+
+* add auth method ([0028b10](https://github.com/corytech/php-internal-auth/commit/0028b10e05662fa7ceeb3f6d5384cf2de2eca0fb))
+* ci ([42a4243](https://github.com/corytech/php-internal-auth/commit/42a42431aff85f14d7402ba1d9f473edcc1162c8))
+* header name ([06dd6fc](https://github.com/corytech/php-internal-auth/commit/06dd6fc0c62011da969e87b4f42aa33d186e55b2))
+* use as a bundle ([6aa6cd6](https://github.com/corytech/php-internal-auth/commit/6aa6cd67ce644453980f9d0adcd5dd509d2421ce))
+
 ## [1.1.1](https://github.com/corytech/php-internal-auth/compare/v1.1.0...v1.1.1) (2026-07-21)
 
 
