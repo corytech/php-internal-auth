@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.4](https://github.com/corytech/php-internal-auth/compare/v1.1.3...v1.1.4) (2026-08-04)
+
+
+### 🧰 Maintenance
+
+* **CPD-8393:** Pin external actions with SHA ([915ed04](https://github.com/corytech/php-internal-auth/commit/915ed04bf048f6835474c672bedd0055dcceabf4))
+* **CPD-8393:** Pin external actions with SHA ([4cd180d](https://github.com/corytech/php-internal-auth/commit/4cd180dd4a7952e3e5f51188889b7ac68fb37b1f))
+
 ## [1.1.3](https://github.com/corytech/php-internal-auth/compare/v1.1.2...v1.1.3) (2026-07-22)
 
 
